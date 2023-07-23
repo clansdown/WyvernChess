@@ -1,8 +1,31 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+
+onMount(() => { drawBoard()} );
+
+function drawBoard() {
+    let canvas = document.getElementById("board") as HTMLCanvasElement;
+    let context = canvas.getContext("2d");
+    context.beginPath();
+    context.rect(0,0,512,512);
+    context.fill();
+    
+}
 
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
 
 <main>
 <h2>WyvernChess</h2>
@@ -11,6 +34,12 @@
 
 
 </main>
+
+
+
+
+
+
 
 <style>
 
