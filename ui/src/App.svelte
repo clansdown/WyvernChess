@@ -6,8 +6,25 @@ onMount(() => { drawBoard()} );
 function drawBoard() {
     let canvas = document.getElementById("board") as HTMLCanvasElement;
     let context = canvas.getContext("2d");
+
+    /* Background */
     context.beginPath();
+    context.fillStyle ="#000";
     context.rect(0,0,512,512);
+    context.fill();
+
+    /* Lines */
+    context.beginPath();
+    context.fillStyle ="#fff";
+    for(let i = 1; i<8; i = i + 1) {
+        context.rect(0,64*i,512,1);
+    }
+    for(let i = 1; i<8; i = i + 1){
+        context.rect(64*i,0,1,512);
+    }
+
+    
+
     context.fill();
     
 }
