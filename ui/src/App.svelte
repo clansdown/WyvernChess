@@ -23,10 +23,41 @@ function drawBoard() {
         context.rect(64*i,0,1,512);
     }
 
-    
+    /* squares */    
+    context.rect(0,0,64,64);
+    context.rect(128,0,64,64);
+    context.rect(256,0,64,64);
+    context.rect(256 + 128,0,64,64);
+
+    for(let j = 0; j<8; j = j + 1) {    
+        let even = j % 2;
+        for(let i = 0;i<8; i = i + 2){
+            context.rect(64*(i+even),64*j,64,64);
+        }
+    }
 
     context.fill();
     
+    context.beginPath();
+    context.fillStyle ="#0f0";
+    for(let j = 0; j<8; j = j + 1) {
+        let even = j % 2;
+        for(let i = 0;i<8; i = i + 1){
+            context.rect(64*i+28,64*j+28,8,8);
+        }
+    }
+
+    
+    context.fill();
+
+
+
+
+
+
+
+
+
 }
 
 
