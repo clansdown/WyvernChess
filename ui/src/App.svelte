@@ -35,26 +35,40 @@ function drawBoard() {
             context.rect(64*(i+even),64*j,64,64);
         }
     }
-
     context.fill();
+
     
     context.beginPath();
     context.fillStyle ="#0f0";
     for(let j = 0; j<8; j = j + 1) {
         let even = j % 2;
         for(let i = 0;i<8; i = i + 1){
-            context.rect(64*i+28,64*j+28,8,8);
+            context.rect(64*i+36,64*j+34,8,8);
         }
     }
-
-    
     context.fill();
 
 
+context.beginPath();
+context.fillStyle ="#f0f";
+for(let j = 0; j<8; j = j + 1) {
+    let even = j %2;
+    for(let i = 0;i<8; i = i + 1){
+        context.rect(64*i+24,64*j+34,8,8,);
+    }
+}
+context.fill();
 
 
-
-
+context.beginPath();
+context.fillStyle ="#ff0";
+for(let j = 0; j<8; j = j + 1) {
+    let even = j %2;
+    for(let i = 0;i<8; i = i + 1){
+        context.rect(64*i+30,64*j+22,8,8,);
+    }
+}
+context.fill();
 
 
 
