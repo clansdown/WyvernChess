@@ -1,7 +1,16 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
-onMount(() => { drawBoard()} );
+//onMount(() => { drawBoard()} );
+class Sprite {
+    x : number;
+    y : number;
+    width : number;
+    height : number;
+
+
+}
+
 
 function drawBoard() {
     let canvas = document.getElementById("board") as HTMLCanvasElement;
@@ -49,30 +58,33 @@ function drawBoard() {
     context.fill();
 
 
-context.beginPath();
-context.fillStyle ="#f0f";
-for(let j = 0; j<8; j = j + 1) {
-    let even = j %2;
-    for(let i = 0;i<8; i = i + 1){
-        context.rect(64*i+24,64*j+34,8,8,);
+    context.beginPath();
+    context.fillStyle ="#f0f";
+    for(let j = 0; j<8; j = j + 1) {
+        let even = j %2;
+        for(let i = 0;i<8; i = i + 1){
+            context.rect(64*i+24,64*j+34,8,8,);
+        }
     }
-}
-context.fill();
+    context.fill();
 
 
-context.beginPath();
-context.fillStyle ="#ff0";
-for(let j = 0; j<8; j = j + 1) {
-    let even = j %2;
-    for(let i = 0;i<8; i = i + 1){
-        context.rect(64*i+30,64*j+22,8,8,);
+    context.beginPath();
+    context.fillStyle ="#ff0";
+    for(let j = 0; j<8; j = j + 1) {
+        let even = j %2;
+        for(let i = 0;i<8; i = i + 1){
+            context.rect(64*i+30,64*j+22,8,8,);
+        }
     }
+    context.fill();
+
+    
+
 }
-context.fill();
 
 
 
-}
 
 
 
@@ -92,8 +104,10 @@ context.fill();
 <main>
 <h2>WyvernChess</h2>
 
+
 <canvas id="board" width=512 height=512></canvas>
 
+<img id="spritesheet" style="display: none;" src="chess_sprites_Alpha.png" alt="spritesheet" on:load={drawBoard}/>
 
 </main>
 
