@@ -7,14 +7,37 @@ class Sprite {
     y : number;
     width : number;
     height : number;
-
-
 }
 
 
+enum PieceType {
+    Pawn,
+    Knight,
+    Bishop,
+    Rook,
+    Queen,
+    King,
+}
+
+class Piece {
+    type : PieceType;
+    White : boolean;
+}
+
+class Square {
+    row : number;
+    column : number;
+    piece? : Piece;
+}
+
+const board : Square[] = [];
+for (let i = 0; i<64; i++) {
+    board.push({row : i/8, column : i%8});
+}
+
 function drawBoard() {
-    let canvas = document.getElementById("board") as HTMLCanvasElement;
-    let context = canvas.getContext("2d");
+    const canvas = document.getElementById("board") as HTMLCanvasElement;
+    const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 
     /* Background */
     context.beginPath();
@@ -46,7 +69,15 @@ function drawBoard() {
     }
     context.fill();
 
+    // draw_squares(context);
     
+
+    
+
+}
+
+
+function draw_squares(context : CanvasRenderingContext2D){
     context.beginPath();
     context.fillStyle ="#0f0";
     for(let j = 0; j<8; j = j + 1) {
@@ -79,12 +110,8 @@ function drawBoard() {
     }
     context.fill();
 
-    
 
 }
-
-
-
 
 
 
